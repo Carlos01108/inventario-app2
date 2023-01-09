@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+ 
+
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <img src="data:image/png;base64, {{this.data.imagen}}" alt="Imagen"  style="height:200px;width:200px" />
+  
+  </ion-item>
+
+  
+  <ion-item>
+
+    <ion-label>Nombre</ion-label>
+    <ion-input [(ngModel)]="data.product_name" placeholder="Agregar el nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Precio:$</ion-label>
+    <ion-input type="number" [(ngModel)]="data.product_price" placeholder="Agregar el precio"></ion-input>
+  </ion-item>
+  <ion-item>
+ 
+  
+    <input  type="file"  [(ngModel)]="currentInput"(change)="uploadFile($event)"
+>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon lazy="true" slot="start" name="image"></ion-icon>
+    <ion-button (click)="submitForm()">Registrar
+    </ion-button>
+  </ion-item>
+
+
+</ion-content> 

@@ -1,0 +1,39 @@
+<!-- student-list.page.html -->
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  <ion-button [routerLink]="['/productos-create']">
+    Agregar Productos nuevos
+  </ion-button>
+
+  <ion-card *ngFor="let item of studentsData"  >
+    <img src="data:image/png;base64, {{item.imagen}}" alt="Red dot"  style="height:200px;width:200px" />
+    <!-- <img alt="Silhouette of mountains" src="{{ item.imagen }}" />
+    <img [src]="'data:image/jpg;base64,'+item.imagen" style="height:50px;width:50px" /> -->
+    <!-- <img style='display:block; width:100px;height:100px;' id='base64image'
+    src='data:image/jpeg;base64,"{{ item.imagen }}"' /> -->
+    <ion-card-header>
+      <ion-card-subtitle>{{item.product_id}}</ion-card-subtitle>
+      <ion-card-title>{{ item.product_name }}</ion-card-title>
+     
+    </ion-card-header>
+  
+    <ion-card-content>
+      
+     Precio:$ {{ item.product_price }}
+    </ion-card-content>
+    <ion-button color="warning" size="small" routerLink='/productos-edit/{{item.product_id}}'>
+      <ion-icon name="create"></ion-icon>
+    </ion-button>
+    <ion-button color="danger" size="small" (click)="delete(item.product_id)">
+      <ion-icon name="trash"></ion-icon>
+    </ion-button>
+  </ion-card>
+
+</ion-content>
+
